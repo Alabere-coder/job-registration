@@ -26,7 +26,7 @@ const JobNotice = () => {
       <div className="flex justify-between pt-4">
         <div className="max-w-40 flex items-center flex-col justify-center">
           <Separator my="3" size="4" />
-          <small>Customer's Signature</small>
+          <small>Customer Signature</small>
         </div>
         <div className="max-w-40 flex items-center flex-col justify-center">
           <Separator my="3" size="4" />
