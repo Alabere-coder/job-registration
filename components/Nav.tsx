@@ -7,7 +7,7 @@ const NavBar = () => {
         Alabere Integrity Structured Solutions
       </Link>
       <Link href="/" className="ml-2 font-bold md:hidden text-2xl">
-        A I S S
+        AISS
       </Link>
       <div className="max-sm:mr-2 sm:mr-10 flex gap-3 links text-base">
         <Link href="/">Home</Link>
