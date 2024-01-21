@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase";
 import * as z from "zod";
 
-const formSchema = z.object({
+const jobSchema = z.object({
   fullName: z.string().min(3, {
     message: "Name must be at least 3 characters.",
   }),
@@ -25,31 +25,32 @@ const formSchema = z.object({
   CreatedAt: z.string(),
 });
 
-async function getUsers(): Promise<z.infer<typeof formSchema>[]> {
+async function getJobs(): Promise<z.infer<typeof jobSchema>[]> {
   try {
     const querySnapshot = await getDocs(collection(db, "jobs"));
-    const dataSnap: z.infer<typeof formSchema>[] = querySnapshot.docs.map(
+    const jobData: z.infer<typeof jobSchema>[] = querySnapshot.docs.map(
       (doc) => ({
         id: doc.id,
         ...doc.data(),
       })
-    );
-    return dataSnap;
+    ) as z.infer<typeof jobSchema>[];
+    return jobData;
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("Error fetching jobs:", error);
     throw error;
   }
 }
 
 export default async function JobsData() {
-  const datas = await getUsers();
+  const jobs = await getJobs();
+
   return (
     <section className="py-4">
       <div className="container">
         <div></div>
         <h1 className="text-3xl font-bold text-center">Registered Customers</h1>
 
-        <DataTable columns={columns} data={datas} />
+        <DataTable columns={columns} data={jobs} />
       </div>
     </section>
   );

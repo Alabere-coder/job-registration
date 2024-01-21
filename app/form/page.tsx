@@ -44,6 +44,7 @@ const formSchema = z.object({
   amountPaid: z.string(),
   status: z.string(),
   notes: z.string(),
+  id: z.string(),
   CreatedAt: z.string(),
 });
 
@@ -63,6 +64,7 @@ const JobRegistration: React.FC = () => {
       amountPaid: "",
       status: "",
       notes: "",
+      id: "",
       CreatedAt: "",
     },
   });
@@ -84,6 +86,7 @@ const JobRegistration: React.FC = () => {
 
     try {
       const docRef = await addDoc(collection(db, "jobs"), {
+        id: values.id,
         fullName: values.fullName,
         phone: values.phone,
         email: values.email,
