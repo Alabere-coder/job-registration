@@ -28,7 +28,7 @@ const JobCard: React.FC<{ jobs: UserData[] }> = ({ jobs }) => {
       >
         <Container>
           {jobs.map((job) => (
-            <div key={job.id}>
+            <div key={`job.id`}>
               <div className="flex justify-between my-4 items-center px-4">
                 <Text className="font-bold text text-2xl">
                   ALABERE INTEGRITY STRUCTURED SOLUTIONS

@@ -86,7 +86,6 @@ const JobRegistration: React.FC = () => {
 
     try {
       const docRef = await addDoc(collection(db, "jobs"), {
-        id: values.id,
         fullName: values.fullName,
         phone: values.phone,
         email: values.email,
