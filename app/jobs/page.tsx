@@ -1,5 +1,3 @@
-"use client";
-
 import { columns } from "./Columns";
 import { DataTable } from "./DataTable";
 import { collection, getDocs } from "firebase/firestore";
