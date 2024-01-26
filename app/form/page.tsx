@@ -64,6 +64,7 @@ const JobRegistration: React.FC = () => {
       amountPaid: "",
       status: "",
       notes: "",
+      id: "",
       CreatedAt: "",
     },
   });
